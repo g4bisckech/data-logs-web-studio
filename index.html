@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data-Logs Web Studio | Desarrollo web para comercios locales</title>
+    <meta
+      name="description"
+      content="Data-Logs Web Studio crea catálogos digitales, tiendas con WhatsApp y sitios web para comercios locales. Prueba 15 días gratis."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563EB",
+              secondary: "#38BDF8",
+              deep: "#0F172A",
+              mist: "#F8FAFC",
+              soft: "#E2E8F0"
+            },
+            boxShadow: {
+              glow: "0 20px 45px rgba(37, 99, 235, 0.18)"
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .banner-pulse {
+        animation: pulseSoft 2.1s ease-in-out infinite;
+      }
+      @keyframes pulseSoft {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.92; transform: scale(1.02); }
+      }
+      .glass {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .modal-open {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="bg-mist text-slate-900 antialiased">
+    <div class="banner-pulse sticky top-0 z-50 bg-gradient-to-r from-primary via-blue-500 to-secondary text-white shadow-lg">
+      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-xs font-bold sm:text-sm md:text-base">
+        🚀 ¡ÚLTIMOS DÍAS! Proba el sistema 15 días GRATIS en tu local. Sin tarjeta ni compromisos.
+      </div>
+    </div>
+
+    <header class="sticky top-[52px] z-40 border-b border-slate-200/80 bg-white/90 glass">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between py-4">
+          <a href="#inicio" class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-lg font-black text-white shadow-md">
+              D
+            </div>
+            <div>
+              <div class="text-base font-black tracking-tight text-deep sm:text-lg">DATA-LOGS</div>
+              <div class="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">Web Studio</div>
+            </div>
+          </a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+            <a href="#inicio" class="text-sm font-medium text-slate-700 transition hover:text-primary">Inicio</a>
+            <a href="#servicios" class="text-sm font-medium text-slate-700 transition hover:text-primary">Servicios</a>
+            <a href="#prueba" class="text-sm font-medium text-slate-700 transition hover:text-primary">Prueba Gratis</a>
+            <a href="#contacto" class="text-sm font-medium text-slate-700 transition hover:text-primary">Contacto</a>
+          </nav>
+
+          <div class="hidden md:block">
+            <a
+              href="https://wa.me/5493518631873?text=Hola%20Santiago%2C%20vi%20la%20web%20de%20Data-Logs%20y%20quiero%20consultar%20por%20una%20prueba%20gratis%20de%2015%20d%C3%ADas%20para%20mi%20local."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-full bg-deep px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-200 transition hover:bg-slate-800"
+            >
+              Hablar con Santiago
+            </a>
+          </div>
+
+          <button
+            id="menuButton"
+            class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm md:hidden"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white pb-4 md:hidden">
+          <div class="flex flex-col gap-2 pt-4">
+            <a href="#inicio" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Inicio</a>
+            <a href="#servicios" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Servicios</a>
+            <a href="#prueba" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Prueba Gratis</a>
+            <a href="#contacto" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Contacto</a>
+            <a
+              href="https://wa.me/5493518631873?text=Hola%20Santiago%2C%20vi%20la%20web%20de%20Data-Logs%20y%20quiero%20consultar%20por%20una%20prueba%20gratis%20de%2015%20d%C3%ADas%20para%20mi%20local."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-2 inline-flex items-center justify-center rounded-full bg-deep px-4 py-2.5 text-sm font-semibold text-white"
+            >
+              Hablar con Santiago
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.12),transparent_25%)]"></div>
+        <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <span class="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.22em] text-primary">
+              Desarrollo web para comercios locales
+            </span>
+
+            <h1 class="mt-6 max-w-xl text-4xl font-black leading-tight tracking-[-0.06em] text-deep sm:text-5xl lg:text-6xl">
+              Transformamos tu local en una máquina de ventas digital.
+            </h1>
+
+            <p class="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
+              Soy Santiago, desarrollador web local. Creo catálogos digitales interactivos y tiendas con pedido directo a WhatsApp para que tu negocio venda más y ahorres horas respondiendo mensajes.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#prueba" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3.5 text-sm font-bold text-white shadow-glow transition hover:brightness-110">
+                Solicitar Prueba Gratis por 15 Días
+              </a>
+              <a href="#servicios" class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-bold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">
+                Ver Planes y Servicios
+              </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-slate-600">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+                Atención personalizada
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+                Soporte cercano y real
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-8 top-12 h-28 w-28 rounded-full bg-secondary/20 blur-3xl"></div>
+            <div class="absolute -right-6 bottom-8 h-32 w-32 rounded-full bg-primary/15 blur-3xl"></div>
+
+            <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-[0_25px_60px_rgba(15,23,42,0.10)] sm:p-6">
+              <div class="rounded-[1.5rem] bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 p-4 text-white">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+                    <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  </div>
+                  <span class="rounded-full bg-white/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]">
+                    Local
+                  </span>
+                </div>
+
+                <div class="mt-5 rounded-2xl bg-white/5 p-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="text-[10px] uppercase tracking-[0.2em] text-sky-200">Ventas</p>
+                      <p class="mt-2 text-3xl font-black">+68%</p>
+                    </div>
+                    <div class="rounded-xl bg-emerald-500/15 px-3 py-2 text-right">
+                      <p class="text-[10px] uppercase tracking-[0.2em] text-emerald-200">Mes</p>
+                      <p class="mt-1 text-lg font-bold text-emerald-300">Aumentado</p>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 space-y-3">
+                    <div class="rounded-xl bg-slate-900/40 p-3">
+                      <div class="mb-2 flex justify-between text-xs text-slate-300">
+                        <span>Pedidos por WhatsApp</span>
+                        <span class="font-semibold text-white">84</span>
+                      </div>
+                      <div class="h-2 overflow-hidden rounded-full bg-white/10">
+                        <div class="h-full w-[84%] rounded-full bg-gradient-to-r from-sky-400 to-blue-500"></div>
+                      </div>
+                    </div>
+
+                    <div class="rounded-xl bg-slate-900/40 p-3">
+                      <div class="mb-2 flex justify-between text-xs text-slate-300">
+                        <span>Catálogo activo</span>
+                        <span class="font-semibold text-white">96%</span>
+                      </div>
+                      <div class="h-2 overflow-hidden rounded-full bg-white/10">
+                        <div class="h-full w-[96%] rounded-full bg-gradient-to-r from-cyan-400 to-sky-500"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-white/5 p-3">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-slate-300">Clientes</p>
+                    <p class="mt-2 text-xl font-black">1.240</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/5 p-3">
+                    <p class="text-[10px] uppercase tracking-[0.18em] text-slate-300">Tiempo</p>
+                    <p class="mt-2 text-xl font-black">-4h</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="prueba" class="px-4 py-12 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-5xl">
+          <div class="rounded-[2rem] border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-blue-50 p-6 shadow-glow sm:p-8 lg:p-10">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                  🔥 PROMOCIÓN POR TIEMPO LIMITADO
+                </span>
+                <h2 class="mt-4 text-2xl font-black text-deep sm:text-3xl lg:text-4xl">
+                  Prueba gratuita por 15 días
+                </h2>
+              </div>
+
+              <div class="rounded-2xl border border-primary/10 bg-white/90 px-5 py-3 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Precio visible</p>
+                <p class="mt-1 text-2xl font-black text-primary">$0 por 15 días</p>
+                <p class="text-sm font-medium text-slate-600">(Sin compromisos)</p>
+              </div>
+            </div>
+
+            <p class="mt-6 max-w-3xl text-base leading-8 text-slate-700 sm:text-lg">
+              Diseño y activo el sitio web de tu comercio 100% armado. Lo usas 15 días en tu día a día para comprobar si te ahorra tiempo y aumenta tus pedidos. Si no te convence, lo damos de baja y no me debes absolutamente nada. Si te gusta, elegimos el plan ideal para tu negocio.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios" class="px-4 py-12 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-10 text-center">
+            <span class="inline-flex items-center rounded-full bg-slate-900 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-white">
+              Servicios y planes
+            </span>
+            <h2 class="mt-4 text-3xl font-black tracking-[-0.05em] text-deep sm:text-4xl">
+              Soluciones pensadas para vender más sin perder tiempo.
+            </h2>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-3">
+            <article class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60 transition hover:-translate-y-1 hover:shadow-xl">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  Accesible
+                </span>
+                <span class="text-xs font-semibold text-slate-500">Plan 1</span>
+              </div>
+
+              <h3 class="mt-5 text-2xl font-black text-deep">Tienda Catálogo Express</h3>
+              <div class="mt-5">
+                <p class="text-3xl font-black text-deep">$35.000</p>
+                <p class="text-sm text-slate-500">ARS armado + $15.000 ARS/mes</p>
+              </div>
+
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                Catálogo interactivo con carrito a WhatsApp, pagos en efectivo, transferencia o Mercado Pago formateados en el mensaje.
+              </p>
+
+              <div class="mt-6 border-t border-slate-200 pt-5">
+                <ul class="space-y-2 text-sm text-slate-700">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Catálogo interactivo y carrito
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Promociones y pagos formateados
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Google Maps y QR para mostrador
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                class="mt-7 inline-flex w-full items-center justify-center rounded-full border border-primary/20 bg-primary px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
+                data-plan="plan1"
+              >
+                Ver detalles completos
+              </button>
+            </article>
+
+            <article class="relative rounded-[2rem] border-2 border-primary bg-gradient-to-b from-white to-blue-50 p-6 shadow-glow">
+              <div class="absolute -top-4 left-6 rounded-full bg-gradient-to-r from-primary to-secondary px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                Más popular
+              </div>
+
+              <div class="flex items-center justify-between pt-4">
+                <span class="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  Popular
+                </span>
+                <span class="text-xs font-semibold text-slate-500">Plan 2</span>
+              </div>
+
+              <h3 class="mt-5 text-2xl font-black text-deep">Tienda Pro Automatizada</h3>
+              <div class="mt-5">
+                <p class="text-3xl font-black text-deep">$65.000</p>
+                <p class="text-sm text-slate-500">ARS armado + $25.000 ARS/mes</p>
+              </div>
+
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                Todo lo del Plan 1 + carrito automatizado con carga de datos del cliente y muestra de alias/CBU directo en pantalla.
+              </p>
+
+              <div class="mt-6 border-t border-slate-200 pt-5">
+                <ul class="space-y-2 text-sm text-slate-700">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Carrito inteligente con entrega/retiro
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Reseñas en Google y CBU dinámico
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Capacitación flash y soporte prioritario
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                class="mt-7 inline-flex w-full items-center justify-center rounded-full bg-deep px-4 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
+                data-plan="plan2"
+              >
+                Ver detalles completos
+              </button>
+            </article>
+
+            <article class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60 transition hover:-translate-y-1 hover:shadow-xl">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-violet-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-violet-700">
+                  VIP
+                </span>
+                <span class="text-xs font-semibold text-slate-500">Plan 3</span>
+              </div>
+
+              <h3 class="mt-5 text-2xl font-black text-deep">E-Commerce Premium VIP</h3>
+              <div class="mt-5">
+                <p class="text-3xl font-black text-deep">$110.000</p>
+                <p class="text-sm text-slate-500">ARS armado + $40.000 ARS/mes</p>
+              </div>
+
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                Todo lo del Plan 2 + cobros automáticos integrados con tarjetas y Mercado Pago Checkout.
+              </p>
+
+              <div class="mt-6 border-t border-slate-200 pt-5">
+                <ul class="space-y-2 text-sm text-slate-700">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Pago automático con tarjetas
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Catálogo premium con múltiples fotos
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    Soporte prioritario 24/7
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                class="mt-7 inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-slate-50"
+                data-plan="plan3"
+              >
+                Ver detalles completos
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 py-12 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl rounded-[2rem] bg-deep p-6 text-white shadow-[0_25px_60px_rgba(15,23,42,0.2)] sm:p-8 lg:p-10">
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="space-y-5">
+              <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-sky-200">
+                Confianza
+              </span>
+              <h2 class="text-3xl font-black tracking-[-0.05em] sm:text-4xl">
+                Atención 100% personalizada y cercana.
+              </h2>
+            </div>
+
+            <div>
+              <p class="text-base leading-8 text-slate-200 sm:text-lg">
+                Al ser un desarrollador de la zona, voy presencialmente al local a conocer el negocio, mostrar maquetas en vivo y dar soporte cara a cara para generar total tranquilidad. No es un servicio genérico: cada proyecto se adapta a la realidad de tu comercio, tu público y tus ventas.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <span class="rounded-full bg-white/10 px-3 py-2 text-sm font-medium text-sky-100">Visita inicial</span>
+                <span class="rounded-full bg-white/10 px-3 py-2 text-sm font-medium text-sky-100">Diseño enfocado</span>
+                <span class="rounded-full bg-white/10 px-3 py-2 text-sm font-medium text-sky-100">Soporte cercano</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8">
+        <div class="grid gap-8 border-t border-slate-200 pt-8 md:grid-cols-3">
+          <div>
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-lg font-black text-white">
+                D
+              </div>
+              <div>
+                <div class="text-lg font-black tracking-tight text-deep">DATA-LOGS</div>
+                <div class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">Web Studio</div>
+              </div>
+            </div>
+            <p class="mt-4 max-w-xs text-sm leading-7 text-slate-600">
+              Sitios web modernos, catálogos digitales y tiendas para comercios locales que quieren vender más con claridad y rapidez.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-black uppercase tracking-[0.2em] text-slate-500">Contacto</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-700">
+              <li>
+                <a href="https://wa.me/5493518631873?text=Hola%20Santiago%2C%20vi%20la%20web%20de%20Data-Logs%20y%20quiero%20consultar%20por%20una%20prueba%20gratis%20de%2015%20d%C3%ADas%20para%20mi%20local." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-primary">
+                  <span>💬</span>
+                  WhatsApp directo
+                </a>
+              </li>
+              <li class="flex items-center gap-2">
+                <span>📞</span>
+                +54 9 351 863-1873
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-black uppercase tracking-[0.2em] text-slate-500">Acciones rápidas</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-700">
+              <li><a href="#inicio" class="hover:text-primary">Inicio</a></li>
+              <li><a href="#servicios" class="hover:text-primary">Servicios</a></li>
+              <li><a href="#prueba" class="hover:text-primary">Prueba Gratis</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
+          Copyright © 2026 Data-Logs Web Studio.
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/5493518631873?text=Hola%20Santiago%2C%20vi%20la%20web%20de%20Data-Logs%20y%20quiero%20consultar%20por%20una%20prueba%20gratis%20de%2015%20d%C3%ADas%20para%20mi%20local."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-5 right-5 z-50 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-green-600 text-2xl shadow-[0_18px_35px_rgba(16,185,129,0.35)] transition hover:scale-105"
+      aria-label="Chatear por WhatsApp"
+    >
+      💬
+    </a>
+
+    <div id="planModal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-slate-900/55 p-4">
+      <div class="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8">
+        <button
+          id="closeModal"
+          class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-xl text-slate-600 transition hover:bg-slate-200"
+          aria-label="Cerrar modal"
+        >
+          ×
+        </button>
+
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script>
+      const planContent = {
+        plan1: {
+          title: "Tienda Catálogo Express",
+          badge: "Plan 1",
+          price: "$35.000 ARS armado + $15.000 ARS/mes",
+          summary:
+            "Catálogo interactivo con carrito a WhatsApp, pagos en efectivo, transferencia o Mercado Pago formateados en el mensaje.",
+          list: [
+            "Catálogo interactivo con carrito directo a WhatsApp.",
+            "Integración de promociones (Efectivo, Transferencia, Cuotas).",
+            "Integración con Google Maps (Cómo Llegar).",
+            "Cartelería digital con Código QR para el mostrador/vidriera del local.",
+            "Actualización de stock diaria en horarios fijados.",
+            "Mantenimiento presencial en el local cada 15 días.",
+            "Visita personal inicial de asesoramiento."
+          ]
+        },
+        plan2: {
+          title: "Tienda Pro Automatizada",
+          badge: "Plan 2",
+          price: "$65.000 ARS armado + $25.000 ARS/mes",
+          summary:
+            "Todo lo del Plan 1 + carrito automatizado con carga de datos del cliente (Nombre, Dirección/Retiro) y muestra de alias/CBU directo en pantalla.",
+          list: [
+            "Todo lo incluido en el Plan 1.",
+            "Carrito inteligente con selección de método de entrega (Envío/Retiro) y formulario de cliente.",
+            "Botón directo de Reseñas en Google para sumar 5 estrellas al negocio.",
+            "Muestra de CBU/Alias dinámico en pantalla para transferencias.",
+            "Capacitación Flash (15 min) al dueño para toma de fotos optimizadas con celular.",
+            "Mantenimiento y cambios de stock prioritarios en cualquier momento del día."
+          ]
+        },
+        plan3: {
+          title: "E-Commerce Premium VIP",
+          badge: "Plan 3",
+          price: "$110.000 ARS armado + $40.000 ARS/mes",
+          summary:
+            "Todo lo del Plan 2 + cobros automáticos integrados en la misma web con Tarjetas de Crédito/Débito y Mercado Pago Checkout.",
+          list: [
+            "Todo lo incluido en el Plan 2.",
+            "Pasarela de pago 100% automática (Tarjetas y Mercado Pago Checkout).",
+            "Catálogo de alta resolución con múltiples fotos por producto.",
+            "Selector avanzado de talles, colores y modelos.",
+            "Mantenimientos presenciales semanales y soporte técnico prioritario 24/7."
+          ]
+        }
+      };
+
+      const modal = document.getElementById("planModal");
+      const modalContent = document.getElementById("modalContent");
+      const closeModalBtn = document.getElementById("closeModal");
+      const menuButton = document.getElementById("menuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      function openModal(planKey) {
+        const data = planContent[planKey];
+        if (!data) return;
+
+        modalContent.innerHTML = `
+          <div class="pt-8">
+            <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+              ${data.badge}
+            </span>
+            <h3 class="mt-4 text-3xl font-black tracking-[-0.05em] text-deep">${data.title}</h3>
+            <p class="mt-4 text-2xl font-black text-primary">${data.price}</p>
+            <p class="mt-4 text-base leading-7 text-slate-600">${data.summary}</p>
+
+            <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h4 class="text-lg font-black text-deep">Incluye</h4>
+              <ul class="mt-4 space-y-3">
+                ${data.list
+                  .map(
+                    (item) => `
+                      <li class="flex items-start gap-3 text-sm leading-6 text-slate-700">
+                        <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">✓</span>
+                        <span>${item}</span>
+                      </li>
+                    `
+                  )
+                  .join("")}
+              </ul>
+            </div>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://wa.me/5493518631873?text=Hola%20Santiago%2C%20quiero%20consultar%20por%20el%20${encodeURIComponent(data.title)}."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex flex-1 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-3 text-sm font-bold text-white"
+              >
+                Consultar por este plan
+              </a>
+              <button id="closeFromModal" class="inline-flex flex-1 items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        `;
+
+        const closeFromModal = document.getElementById("closeFromModal");
+        closeFromModal.addEventListener("click", closeModalFn);
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeModalFn() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.classList.remove("modal-open");
+      }
+
+      document.querySelectorAll("[data-plan]").forEach((button) => {
+        button.addEventListener("click", () => {
+          openModal(button.dataset.plan);
+        });
+      });
+
+      closeModalBtn.addEventListener("click", closeModalFn);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModalFn();
+      });
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModalFn();
+        }
+      });
+    </script>
+  </body>
+</html>
